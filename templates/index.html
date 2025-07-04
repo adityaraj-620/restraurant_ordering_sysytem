@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu - Order Online</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍽️ LittiDhuskaWale</h1>
+            <p>Delicious food, delivered fresh</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Menu Section -->
+            <section class="menu-section">
+                <h2>Our Menu</h2>
+                
+                <!-- Category Tabs -->
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="beverages">Beverages</button>
+                    <button class="tab-btn" data-category="main_course">Main Course</button>
+                    <button class="tab-btn" data-category="desserts">Desserts</button>
+                </div>
+
+                <!-- Menu Items -->
+                <div id="menu-items" class="menu-grid">
+                    <!-- Menu items will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Order Summary Section -->
+            <section class="order-section">
+                <div class="order-summary">
+                    <h3>Your Order</h3>
+                    <div id="order-items" class="order-items">
+                        <p class="empty-order">Your cart is empty</p>
+                    </div>
+                    
+                    <div class="order-totals" id="order-totals" style="display: none;">
+                        <div class="total-line">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">$0.00</span>
+                        </div>
+                        <div class="total-line">
+                            <span>Tax (8%):</span>
+                            <span id="tax">$0.00</span>
+                        </div>
+                        <div class="total-line total">
+                            <span>Total:</span>
+                            <span id="total">$0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="customer-info" id="customer-info" style="display: none;">
+                        <input type="text" id="customer-name" placeholder="Your name (optional)" />
+                        <textarea id="order-notes" placeholder="Special instructions (optional)"></textarea>
+                    </div>
+
+                    <button id="submit-order" class="submit-btn" style="display: none;">
+                        Place Order
+                    </button>
+
+                    <button id="print-bill" class="print-btn" style="display: none;">
+                        Print Bill
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Order Confirmed! 🎉</h2>
+            <div id="confirmation-details"></div>
+            <button id="new-order" class="submit-btn">Start New Order</button>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

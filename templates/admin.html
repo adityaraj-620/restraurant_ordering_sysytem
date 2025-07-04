@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>🍽️ Restaurant Admin Dashboard</h1>
+            <nav class="admin-nav">
+                <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+                <button class="nav-btn" data-section="orders">Orders</button>
+                <button class="nav-btn" data-section="menu">Menu Management</button>
+                <a href="/" class="nav-btn">Back to Restaurant</a>
+            </nav>
+        </header>
+
+        <main class="admin-main">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Orders</h3>
+                        <div class="stat-number" id="total-orders">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Orders</h3>
+                        <div class="stat-number" id="pending-orders">0</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Revenue</h3>
+                        <div class="stat-number" id="total-revenue">$0.00</div>
+                    </div>
+                </div>
+
+                <div class="popular-items">
+                    <h3>Popular Items</h3>
+                    <div id="popular-items-list"></div>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="admin-section">
+                <div class="section-header">
+                    <h2>Order Management</h2>
+                    <div class="order-filters">
+                        <select id="status-filter">
+                            <option value="">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="preparing">Preparing</option>
+                            <option value="ready">Ready</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                        <button id="refresh-orders" class="btn btn-primary">Refresh</button>
+                    </div>
+                </div>
+
+                <div class="orders-container">
+                    <div id="orders-list"></div>
+                    <div class="pagination" id="orders-pagination"></div>
+                </div>
+            </section>
+
+            <!-- Menu Management Section -->
+            <section id="menu" class="admin-section">
+                <div class="section-header">
+                    <h2>Menu Management</h2>
+                    <button id="add-menu-item" class="btn btn-success">Add New Item</button>
+                </div>
+
+                <div class="menu-management">
+                    <div id="menu-items-list"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add/Edit Menu Item Modal -->
+    <div id="menu-item-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title">Add Menu Item</h2>
+            <form id="menu-item-form">
+                <input type="hidden" id="item-id">
+                <div class="form-group">
+                    <label for="item-name">Name:</label>
+                    <input type="text" id="item-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-description">Description:</label>
+                    <textarea id="item-description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="item-price">Price:</label>
+                    <input type="number" id="item-price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-category">Category:</label>
+                    <select id="item-category" required>
+                        <option value="beverages">Beverages</option>
+                        <option value="main_course">Main Course</option>
+                        <option value="desserts">Desserts</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-image-url">Image URL:</label>
+                    <input type="url" id="item-image-url">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="item-available" checked>
+                        Available
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save Item</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeMenuItemModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+</body>
+</html>

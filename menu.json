@@ -1,0 +1,86 @@
+{
+  "beverages": [
+    {
+      "id": 1,
+      "name": "Coffee",
+      "price": 3.5,
+      "description": "Fresh brewed coffee"
+    },
+    {
+      "id": 2,
+      "name": "Tea",
+      "price": 2.5,
+      "description": "Herbal tea selection"
+    },
+    {
+      "id": 3,
+      "name": "Soda",
+      "price": 2.0,
+      "description": "Assorted soft drinks"
+    },
+    {
+      "id": 4,
+      "name": "Fresh Juice",
+      "price": 4.0,
+      "description": "Orange, apple, or grape"
+    }
+  ],
+  "main_course": [
+    {
+      "id": 5,
+      "name": "Margherita Pizza",
+      "price": 12.99,
+      "description": "Classic tomato and mozzarella"
+    },
+    {
+      "id": 6,
+      "name": "Pepperoni Pizza",
+      "price": 15.99,
+      "description": "Pepperoni with mozzarella cheese"
+    },
+    {
+      "id": 7,
+      "name": "Pasta Carbonara",
+      "price": 13.5,
+      "description": "Creamy pasta with bacon"
+    },
+    {
+      "id": 8,
+      "name": "Grilled Chicken",
+      "price": 16.99,
+      "description": "Herb-seasoned grilled chicken"
+    },
+    {
+      "id": 9,
+      "name": "Caesar Salad",
+      "price": 9.99,
+      "description": "Fresh romaine with caesar dressing"
+    }
+  ],
+  "desserts": [
+    {
+      "id": 10,
+      "name": "Chocolate Cake",
+      "price": 6.99,
+      "description": "Rich chocolate layer cake"
+    },
+    {
+      "id": 11,
+      "name": "Tiramisu",
+      "price": 7.5,
+      "description": "Classic Italian dessert"
+    },
+    {
+      "id": 12,
+      "name": "Ice Cream",
+      "price": 4.99,
+      "description": "Vanilla, chocolate, or strawberry"
+    },
+    {
+      "id": 13,
+      "name": "Cheesecake",
+      "price": 6.5,
+      "description": "New York style cheesecake"
+    }
+  ]
+}
